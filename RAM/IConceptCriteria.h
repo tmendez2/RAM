@@ -11,7 +11,7 @@ namespace RAM
 	public:
 		property IConceptConcreteMixes^ concreteMixes
 		{
-			IConceptConcreteMixes^ get();
+			virtual IConceptConcreteMixes^ get();
 		}
 	};
 }

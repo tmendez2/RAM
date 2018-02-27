@@ -45,6 +45,12 @@
     <ClInclude Include="ConceptConcreteMix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IConceptAPIs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConceptAPIs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="APIFactory.cpp">
@@ -60,6 +66,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ConceptConcreteMix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConceptAPIs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

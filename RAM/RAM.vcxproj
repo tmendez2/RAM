@@ -80,11 +80,13 @@
   <ItemGroup>
     <ClInclude Include="APIFactory.h" />
     <ClInclude Include="ConceptAPI.h" />
+    <ClInclude Include="ConceptAPIs.h" />
     <ClInclude Include="ConceptConcreteMix.h" />
     <ClInclude Include="ConceptConcreteMixes.h" />
     <ClInclude Include="ConceptCriteria.h" />
     <ClInclude Include="IAPIFactory.h" />
     <ClInclude Include="IConceptAPI.h" />
+    <ClInclude Include="IConceptAPIs.h" />
     <ClInclude Include="IConceptConcreteMix.h" />
     <ClInclude Include="IConceptCriteria.h" />
     <ClInclude Include="IConceptConcreteMixes.h" />
@@ -92,6 +94,7 @@
   <ItemGroup>
     <ClCompile Include="APIFactory.cpp" />
     <ClCompile Include="ConceptAPI.cpp" />
+    <ClCompile Include="ConceptAPIs.cpp" />
     <ClCompile Include="ConceptConcreteMix.cpp" />
     <ClCompile Include="ConceptConcreteMixes.cpp" />
     <ClCompile Include="ConceptCriteria.cpp" />

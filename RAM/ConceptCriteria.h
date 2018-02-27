@@ -11,13 +11,13 @@ namespace RAM
 	public ref class ConceptCriteria : public IConceptCriteria
 	{
 	public:
-		virtual property IConceptConcreteMixes^ concreteMixes
+		property IConceptConcreteMixes^ concreteMixes
 		{
-			IConceptConcreteMixes^ get();
+			virtual IConceptConcreteMixes^ get();
 		}
 	internal:
 		ConceptCriteria();
 	private:
-		initonly ConceptConcreteMixes^ concreteMixesObject;
+		initonly IConceptConcreteMixes^ concreteMixesObject;
 	};
 }

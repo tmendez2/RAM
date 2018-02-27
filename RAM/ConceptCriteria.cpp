@@ -3,12 +3,14 @@
 namespace RAM
 {
 	//CONSTRUCTOR//
-	ConceptCriteria::ConceptCriteria() :
-		concreteMixesObject(gcnew ConceptConcreteMixes()) { }
+	ConceptCriteria::ConceptCriteria()
+	{
+		concreteMixesObject = safe_cast<IConceptConcreteMixes^>(gcnew ConceptConcreteMixes());
+	}
 
 	//PROPERTIES//
 	IConceptConcreteMixes^ ConceptCriteria::concreteMixes::get()
 	{
-		return safe_cast<IConceptConcreteMixes^>(concreteMixesObject);
+		return concreteMixesObject;
 	}
 }

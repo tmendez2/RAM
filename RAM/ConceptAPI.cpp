@@ -3,9 +3,11 @@
 namespace RAM
 {
 	//CONSTRUCTOR//
-	ConceptAPI::ConceptAPI(int conceptProcessID) : 
-		processID(conceptProcessID), 
-		criteriaObject(gcnew ConceptCriteria()) { }
+	ConceptAPI::ConceptAPI(int conceptProcessID)
+	{
+		processID = conceptProcessID;
+		criteriaObject = safe_cast<IConceptCriteria^>(gcnew ConceptCriteria());
+	}
 
 	//PROPERTIES//
 	System::String^ ConceptAPI::filePath::get()
@@ -18,6 +20,6 @@ namespace RAM
 	}
 	IConceptCriteria^ ConceptAPI::criteria::get()
 	{
-		return safe_cast<IConceptCriteria^>(criteriaObject);
+		return criteriaObject;
 	}
 }

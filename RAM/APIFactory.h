@@ -2,6 +2,7 @@
 
 #include "IAPIFactory.h"
 #include "ConceptAPI.h"
+#include "ConceptAPIs.h"
 
 namespace RAM
 {
@@ -13,9 +14,9 @@ namespace RAM
 	public:
 		APIFactory();
 		virtual IConceptAPI^ createConceptAPI();
-		virtual property System::Collections::IEnumerable^ conceptAPIs
+		property IConceptAPIs^ conceptAPIs
 		{
-			System::Collections::IEnumerable^ get();
+			virtual IConceptAPIs^ get();
 		}
 	};
 }

@@ -11,11 +11,11 @@ namespace RAM
 	public:
 		property System::String^ filePath
 		{
-			System::String^ get();
+			virtual System::String^ get();
 		}
 		property IConceptCriteria^ criteria
 		{
-			IConceptCriteria^ get();
+			virtual IConceptCriteria^ get();
 		}
 	};
 }

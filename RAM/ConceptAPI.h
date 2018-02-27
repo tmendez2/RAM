@@ -11,18 +11,18 @@ namespace RAM
 	public ref class ConceptAPI : public IConceptAPI
 	{
 	public:
-		virtual property System::String^ filePath
+		property System::String^ filePath
 		{
-			System::String^ get();
+			virtual System::String^ get();
 		}
-		virtual property IConceptCriteria^ criteria
+		property IConceptCriteria^ criteria
 		{
-			IConceptCriteria^ get();
+			virtual IConceptCriteria^ get();
 		}
 	internal:
 		ConceptAPI(int conceptProcessID);
 	private:
 		initonly int processID;
-		initonly ConceptCriteria^ criteriaObject;
+		initonly IConceptCriteria^ criteriaObject;
 	};
 }

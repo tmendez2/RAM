@@ -10,15 +10,15 @@ namespace RAM
 	public ref class ConceptConcreteMix : public IConceptConcreteMix
 	{
 	public:
-		virtual property System::String^ name
+		property System::String^ name
 		{
-			System::String^ get();
-			void set(System::String^ value);
+			virtual System::String^ get();
+			virtual void set(System::String^ value);
 		}
-		virtual property double fprimec
+		property double fprimec
 		{
-			double get();
-			void set(double value);
+			virtual double get();
+			virtual void set(double value);
 		}
 	internal:
 		ConceptConcreteMix(System::String^ concreteMixName, double concreteMixFprimec);

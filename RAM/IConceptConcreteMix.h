@@ -9,13 +9,13 @@ namespace RAM
 	public:
 		property System::String^ name
 		{
-			System::String^ get();
-			void set(System::String^ value);
+			virtual System::String^ get();
+			virtual void set(System::String^ value);
 		}
 		property double fprimec
 		{
-			double get();
-			void set(double value);
+			virtual double get();
+			virtual void set(double value);
 		}
 	};
 }

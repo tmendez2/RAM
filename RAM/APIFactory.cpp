@@ -21,11 +21,11 @@ namespace RAM
 		random = gcnew System::Random();
 		conceptProcessID = random->Next();
 
-		return gcnew ConceptAPI(conceptProcessID);
+		return safe_cast<IConceptAPI^>(gcnew ConceptAPI(conceptProcessID));
 	}
 
 	//PROPERTIES//
-	System::Collections::IEnumerable^ APIFactory::conceptAPIs::get()
+	IConceptAPIs^ APIFactory::conceptAPIs::get()
 	{
 		System::Collections::Generic::List<IConceptAPI^>^ conceptAPIs;
 
@@ -36,10 +36,10 @@ namespace RAM
 		//instantiated instances of RAM Concept.
 		//We've assumed the process ID will be 
 		//used to identify RAM Concept instances.
-		conceptAPIs->Add(gcnew ConceptAPI(0));
-		conceptAPIs->Add(gcnew ConceptAPI(1));
-		conceptAPIs->Add(gcnew ConceptAPI(2));
+		conceptAPIs->Add(safe_cast<IConceptAPI^>(gcnew ConceptAPI(0)));
+		conceptAPIs->Add(safe_cast<IConceptAPI^>(gcnew ConceptAPI(1)));
+		conceptAPIs->Add(safe_cast<IConceptAPI^>(gcnew ConceptAPI(2)));
 
-		return conceptAPIs;
+		return gcnew ConceptAPIs(conceptAPIs);
 	}
 }

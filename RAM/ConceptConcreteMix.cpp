@@ -3,9 +3,11 @@
 namespace RAM
 {
 	//CONSTRUCTOR//
-	ConceptConcreteMix::ConceptConcreteMix(System::String^ concreteMixName, double concreteMixFprimec) :
-		nameString(concreteMixName),
-		fprimecDouble(concreteMixFprimec) { }
+	ConceptConcreteMix::ConceptConcreteMix(System::String^ concreteMixName, double concreteMixFprimec)
+	{
+		nameString = concreteMixName;
+		fprimecDouble = concreteMixFprimec;
+	}
 
 	//PROPERTIES//
 	System::String^ ConceptConcreteMix::name::get()
