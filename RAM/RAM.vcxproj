@@ -61,11 +61,11 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies />
-      <TypeLibraryFile>$(TargetDir)$(TargetName).tlb</TypeLibraryFile>
+      <TypeLibraryFile>
+      </TypeLibraryFile>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy "$(ProjectDir)*.cmd" "$(TargetDir)*.cmd" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

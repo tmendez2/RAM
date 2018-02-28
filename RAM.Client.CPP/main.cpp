@@ -1,4 +1,4 @@
-#import "C:\Users\tmendez\Desktop\RAM\RAM\RAM\Debug\RAM.tlb" raw_interfaces_only
+#import "..\RAM\bin\x86\RAM.tlb" raw_interfaces_only
 #include <string>
 #include <iostream>
 
@@ -12,9 +12,9 @@ int main()
 	IConceptAPIPtr api;
 	IConceptCriteriaPtr criteria;
 	IConceptConcreteMixesPtr concreteMixes;
-	IConceptConcreteMixPtr concreteMix;
+	IConceptConcreteMixPtr concreteMix, concreteMixToRemove;
 	long apiCount, apiIndex, concreteMixCount, concreteMixIndex;
-	BSTR apiFilePath, concreteMixName;
+	BSTR apiFilePath, concreteMixName, concreteMixGuid;
 	double concreteMixFprimec;
 
 	try
@@ -41,12 +41,43 @@ int main()
 		wcout << "File Path = " << apiFilePath << endl;
 
 		//Print the concrete mixes.
+		cout << "Getting Concrete Mixes..." << endl;
+		concreteMixToRemove = nullptr;
 		_com_util::CheckError(api->get_criteria(&criteria));
 		_com_util::CheckError(criteria->get_concreteMixes(&concreteMixes));
 		_com_util::CheckError(concreteMixes->get_count(&concreteMixCount));
 		for (concreteMixIndex = 0; concreteMixIndex < concreteMixCount; concreteMixIndex++)
 		{
-			_com_util::CheckError(concreteMixes->get_Item(concreteMixIndex, &concreteMix));
+			_com_util::CheckError(concreteMixes->get_Item_2(concreteMixIndex, &concreteMix));
+			if (concreteMixToRemove == nullptr)
+			{
+				concreteMixToRemove = concreteMix;
+			}
+			_com_util::CheckError(concreteMix->get_name(&concreteMixName));
+			_com_util::CheckError(concreteMix->get_fprimec(&concreteMixFprimec));
+			wcout << "Concrete Mix: name = " << concreteMixName << ", f'c = " << concreteMixFprimec << endl;
+		}
+
+		//Add a concrete mix.
+		cout << "Adding Concrete Mix..." << endl;
+		_com_util::CheckError(concreteMixes->add(_bstr_t("7000 psi"), 7000, &concreteMix));
+		_com_util::CheckError(concreteMixes->get_count(&concreteMixCount));
+		for (concreteMixIndex = 0; concreteMixIndex < concreteMixCount; concreteMixIndex++)
+		{
+			_com_util::CheckError(concreteMixes->get_Item_2(concreteMixIndex, &concreteMix));
+			_com_util::CheckError(concreteMix->get_name(&concreteMixName));
+			_com_util::CheckError(concreteMix->get_fprimec(&concreteMixFprimec));
+			wcout << "Concrete Mix: name = " << concreteMixName << ", f'c = " << concreteMixFprimec << endl;
+		}
+
+		//Remove a concrete mix.
+		cout << "Removing Concrete Mix..." << endl;
+		_com_util::CheckError(concreteMixToRemove->get_guid(&concreteMixGuid));
+		_com_util::CheckError(concreteMixes->remove(concreteMixGuid));
+		_com_util::CheckError(concreteMixes->get_count(&concreteMixCount));
+		for (concreteMixIndex = 0; concreteMixIndex < concreteMixCount; concreteMixIndex++)
+		{
+			_com_util::CheckError(concreteMixes->get_Item_2(concreteMixIndex, &concreteMix));
 			_com_util::CheckError(concreteMix->get_name(&concreteMixName));
 			_com_util::CheckError(concreteMix->get_fprimec(&concreteMixFprimec));
 			wcout << "Concrete Mix: name = " << concreteMixName << ", f'c = " << concreteMixFprimec << endl;
