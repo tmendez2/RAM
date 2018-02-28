@@ -7,6 +7,10 @@ namespace RAM
 	public interface class IConceptConcreteMix
 	{
 	public:
+		property System::String^ guid
+		{
+			virtual System::String^ get();
+		}
 		property System::String^ name
 		{
 			virtual System::String^ get();

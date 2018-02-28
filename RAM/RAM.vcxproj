@@ -47,7 +47,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
+    <OutDir>$(ProjectDir)bin\$(PlatformTarget)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(PlatformTarget)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -60,8 +61,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies />
-      <TypeLibraryFile>
-      </TypeLibraryFile>
+      <TypeLibraryFile>$(TargetDir)$(TargetName).tlb</TypeLibraryFile>
     </Link>
     <PostBuildEvent>
       <Command>

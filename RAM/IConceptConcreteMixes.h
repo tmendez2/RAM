@@ -10,6 +10,8 @@ namespace RAM
 	{
 	public:
 		virtual System::Collections::IEnumerator^ GetEnumerator();
+		virtual IConceptConcreteMix^ add(System::String^ name, double fprimec);
+		virtual void remove(System::String^ guid);
 		property int count
 		{
 			virtual int get();
@@ -17,6 +19,10 @@ namespace RAM
 		property IConceptConcreteMix^ default[int]
 		{
 			virtual IConceptConcreteMix^ get(int index);
+		}
+		property IConceptConcreteMix^ default[System::String^]
+		{
+			virtual IConceptConcreteMix^ get(System::String^ guid);
 		}
 	};
 }

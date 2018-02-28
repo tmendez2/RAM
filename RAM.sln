@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAM.Client.CS", "RAM.Client.CS\RAM.Client.CS.csproj", "{A7FD7BD0-E652-493B-A5A4-E9F6D823C792}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RAM.Client.CPP", "RAM.Client.CPP\RAM.Client.CPP.vcxproj", "{20C7BB0B-CF41-4B3A-B701-A88835CDAB88}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8B52F167-6E21-4E88-AFDB-2CAD0B94E905} = {8B52F167-6E21-4E88-AFDB-2CAD0B94E905}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

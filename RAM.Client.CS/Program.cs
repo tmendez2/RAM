@@ -8,6 +8,7 @@ public class Program
     {
         APIFactory factory;
         IConceptAPI api;
+        IConceptConcreteMix concreteMixToRemove;
 
         try
         {
@@ -27,9 +28,31 @@ public class Program
             Console.WriteLine("File Path = " + api.filePath);
 
             //Print the concrete mixes.
-            foreach (IConceptConcreteMix mix in api.criteria.concreteMixes)
+            Console.WriteLine("Getting Concrete Mixes...");
+            concreteMixToRemove = null;
+            foreach (IConceptConcreteMix concreteMix in api.criteria.concreteMixes)
             {
-                Console.WriteLine("Concrete Mix: name = " + mix.name + ", f'c = " + mix.fprimec.ToString());
+                if(concreteMixToRemove == null)
+                {
+                    concreteMixToRemove = concreteMix;
+                }
+                Console.WriteLine("Concrete Mix: name = " + concreteMix.name + ", f'c = " + concreteMix.fprimec.ToString());
+            }
+
+            //Add a concrete mix, and print again.
+            Console.WriteLine("Adding Concrete Mix...");
+            api.criteria.concreteMixes.add("7000 psi", 7000);
+            foreach (IConceptConcreteMix concreteMix in api.criteria.concreteMixes)
+            {
+                Console.WriteLine("Concrete Mix: name = " + concreteMix.name + ", f'c = " + concreteMix.fprimec.ToString());
+            }
+
+            //Remove a concrete mix and print again.
+            Console.WriteLine("Removing Concrete Mix...");
+            api.criteria.concreteMixes.remove(concreteMixToRemove.guid);
+            foreach (IConceptConcreteMix concreteMix in api.criteria.concreteMixes)
+            {
+                Console.WriteLine("Concrete Mix: name = " + concreteMix.name + ", f'c = " + concreteMix.fprimec.ToString());
             }
         }
         catch(Exception e)
